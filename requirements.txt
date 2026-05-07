@@ -1,0 +1,36 @@
+# ============================================================
+# CONVEYOR VISION SYSTEM — Requirements
+# Fixed for: Streamlit Cloud Python 3.14 / Debian Trixie
+# Semua package di bawah memiliki pre-built wheel untuk py3.14
+# Tidak ada yang perlu di-compile dari source
+# ============================================================
+
+# ── OpenCV HEADLESS ─────────────────────────────────────────
+# cp37-abi3 wheel = kompatibel semua Python >= 3.7 termasuk 3.14
+# WAJIB SEBELUM ultralytics agar tidak di-override
+opencv-python-headless==4.9.0.80
+
+# ── YOLOv8 ──────────────────────────────────────────────────
+# py3-none-any wheel = kompatibel semua Python
+ultralytics==8.3.145
+
+# ── Streamlit ───────────────────────────────────────────────
+# Update ke 1.44.0 (py3-none-any, support Python 3.14)
+streamlit==1.44.0
+
+# ── WebRTC Stack ────────────────────────────────────────────
+# streamlit-webrtc 0.64.6 = versi terbaru (py3-none-any)
+streamlit-webrtc==0.64.6
+# aiortc 1.14.0 = versi terbaru (py3-none-any), butuh av>=14,<17
+aiortc==1.14.0
+# av 16.1.0 = punya cp314-manylinux wheel, kompatibel aiortc 1.14.0
+# av 12.x dan 17.x TIDAK kompatibel (12.x tidak punya py314, 17.x diluar range aiortc)
+av==16.1.0
+
+# ── Data Processing ─────────────────────────────────────────
+# Semua versi di bawah punya cp314 wheel
+pandas==3.0.2
+numpy==2.4.4
+Pillow==12.2.0
+PyYAML==6.0.2
+tqdm==4.66.4
