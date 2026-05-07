@@ -1,42 +1,42 @@
 # ============================================================
 # CONVEYOR VISION SYSTEM — Requirements
 # Verified: Python 3.14.4 / Debian Trixie / Streamlit Cloud
-# Setiap package di bawah sudah dicek punya pre-built wheel
-# untuk Python 3.14 — tidak ada yang perlu compile dari source
+# Semua package punya pre-built wheel untuk Python 3.14
 # ============================================================
 
 # ── 1. OpenCV HEADLESS ──────────────────────────────────────
-# cp37-abi3 wheel = berjalan di semua Python >= 3.7 incl. 3.14
-# HARUS ada sebelum ultralytics agar tidak di-override
+# cp37-abi3 = berjalan di semua Python >= 3.7 incl. 3.14
+# HARUS sebelum ultralytics agar tidak di-override
 opencv-python-headless==4.9.0.80
 
 # ── 2. YOLOv8 ───────────────────────────────────────────────
-# py3-none-any = universal, tidak perlu compile
+# py3-none-any = universal
 ultralytics==8.3.145
 
 # ── 3. Streamlit ────────────────────────────────────────────
-# 1.57.0 = versi pertama yang support pillow<13 DAN pandas<4
-# (1.44.0 error karena butuh pillow<12 dan pandas<3)
+# 1.57.0 = support pillow<13 DAN pandas<4
 streamlit==1.57.0
 
 # ── 4. WebRTC Stack ─────────────────────────────────────────
-# streamlit-webrtc 0.64.6 = py3-none-any, butuh aiortc>=1.11
+# tornado 6.5.5 = cp39-abi3 manylinux, WAJIB untuk streamlit-webrtc
+tornado==6.5.5
+# streamlit-webrtc 0.64.6 = py3-none-any
 streamlit-webrtc==0.64.6
 # aiortc 1.14.0 = py3-none-any, butuh av>=14,<17
 aiortc==1.14.0
-# av 16.1.0 = cp314-manylinux wheel tersedia, dalam range av>=14,<17
+# av 16.1.0 = cp314-manylinux, dalam range av>=14,<17
 av==16.1.0
 
 # ── 5. Data Processing ──────────────────────────────────────
-# pandas 3.0.2 = cp314 wheel, masuk range streamlit <4
+# pandas 3.0.2 = cp314 wheel, range streamlit <4
 pandas==3.0.2
-# numpy 2.4.4  = cp314 wheel, masuk range streamlit <3
+# numpy 2.4.4 = cp314 wheel, range streamlit <3
 numpy==2.4.4
-# Pillow 12.2.0 = cp314 wheel, masuk range streamlit <13
+# Pillow 12.2.0 = cp314 wheel, range streamlit <13
 Pillow==12.2.0
 
 # ── 6. Utilities ────────────────────────────────────────────
-# PyYAML 6.0.3 = satu-satunya versi dengan cp314 wheel (6.0.2 tidak ada)
+# PyYAML 6.0.3 = cp314 wheel (6.0.2 tidak ada cp314 wheel!)
 PyYAML==6.0.3
-# tqdm = py3-none-any, semua versi kompatibel
+# tqdm = py3-none-any
 tqdm==4.67.1
