@@ -330,7 +330,7 @@ with st.sidebar:
     st.divider()
     st.caption(f"**Session:** `{st.session_state['session_id']}`  \n"
                f"**Frames:** {st.session_state['frame_count']:,}  \n"
-               f"**Stack:** st 1.44 · webrtc 0.64 · av 16")
+               f"**Stack:** st 1.57 · webrtc 0.64 · av 16")
 
 # =============================================================
 # MAIN UI
